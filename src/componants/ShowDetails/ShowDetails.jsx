@@ -7,7 +7,7 @@ import LoadingOverlay from "../OtherPages/LoadingOverlay";
 const ShowDetails = () => {
 
 
-    const { user,handleDetailsData,detailsFetch ,loading,setmyCart,myCart,handleCartIN} = useContext(AuthContex)
+    const { user,handleDetailsData,detailsFetch ,loading,handleCartIN} = useContext(AuthContex)
   
     const [hoverPrice,sethoverPrice] = useState(false)
 

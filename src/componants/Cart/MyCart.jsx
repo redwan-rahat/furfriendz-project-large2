@@ -35,7 +35,7 @@ const MyCart = () => {
         })()
         
     }
-
+    
 
     return (
         <div className="font-page mb-24">

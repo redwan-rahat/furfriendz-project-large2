@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import DeleteModal from "../OtherPages/DeleteModal";
 import { AuthContex } from "../AuthProvider/AuthProvider";
+import { NavLink } from "react-router-dom";
 
 
 const MyCartPet = ({myCart}) => {
@@ -30,8 +31,7 @@ const MyCartPet = ({myCart}) => {
 
     },[myCart])
 
-        
-    
+
     return (
         <div className="">
              {
@@ -51,8 +51,8 @@ const MyCartPet = ({myCart}) => {
                         (data.category != 'product') && 
 
                         
-
-                        <div className="border-2 mb-5  border-fifth rounded-lg">
+                        <NavLink to={`/details/${data.category}/${data.item_id}`}>
+                        <div  className="border-2 mb-5  border-fifth rounded-lg">
                            
                            <div className="grid grid-cols-3 bg-third tab:mx-2 tab:my-2  rounded-lg ">
                             
@@ -83,7 +83,7 @@ const MyCartPet = ({myCart}) => {
 
                         </div>
 
-               
+                        </NavLink>
                         
 
                             
