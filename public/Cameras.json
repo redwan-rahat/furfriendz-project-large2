@@ -1,0 +1,37 @@
+[
+  {
+    "cameraID": "CAM01",
+    "location": "Dhanmondi, Dhaka",
+    "liveStatus": "Active",
+    "petCenterName": "Furfriendz Care - Dhanmondi",
+    "imageLink": "https://i.ibb.co.com/c2y24WJ/PetCare1.webp"
+  },
+  {
+    "cameraID": "CAM02",
+    "location": "Banani, Dhaka",
+    "liveStatus": "Active",
+    "petCenterName": "Furfriendz Care - Banani",
+    "imageLink": "https://i.ibb.co.com/fYph68G/PetCare2.webp"
+  },
+  {
+    "cameraID": "CAM03",
+    "location": "Uttara, Dhaka",
+    "liveStatus": "Offline",
+    "petCenterName": "Furfriendz Care - Uttara",
+    "imageLink": "https://i.ibb.co.com/HtJzYZh/PetCare3.webp"
+  },
+  {
+    "cameraID": "CAM04",
+    "location": "Gulshan, Dhaka",
+    "liveStatus": "Active",
+    "petCenterName": "Furfriendz Care - Gulshan",
+    "imageLink": "https://i.ibb.co.com/CtZHrNB/PetCare4.webp"
+  },
+  {
+    "cameraID": "CAM05",
+    "location": "Mirpur, Dhaka",
+    "liveStatus": "Active",
+    "petCenterName": "Furfriendz Care - Mirpur",
+    "imageLink": "https://i.ibb.co.com/jR3w4MC/PetCare5.webp"
+  }
+]
