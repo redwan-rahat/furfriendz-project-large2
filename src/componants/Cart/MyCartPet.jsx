@@ -51,16 +51,16 @@ const MyCartPet = ({myCart}) => {
                         (data.category != 'product') && 
 
                         
-                        <NavLink to={`/details/${data.category}/${data.item_id}`}>
+                        
                         <div  className="border-2 mb-5  border-fifth rounded-lg">
                            
                            <div className="grid grid-cols-3 bg-third tab:mx-2 tab:my-2  rounded-lg ">
-                            
+                           <NavLink to={`/details/${data.category}/${data.item_id}`}>
                             <div className="  col-span-1 border-primary border-r-2 ">
                             <img className="w-24 tab:w-36 lap:w-44 m-auto object-cover " src={data.photo_url} alt="" />
 
                             </div>
-                           
+                            </NavLink>
 
                             <div className="flex text-[12px] tab:text-xs lap:text-base w-11/12 m-auto justify-between col-span-2 ">
 
@@ -83,7 +83,7 @@ const MyCartPet = ({myCart}) => {
 
                         </div>
 
-                        </NavLink>
+                        
                         
 
                             
