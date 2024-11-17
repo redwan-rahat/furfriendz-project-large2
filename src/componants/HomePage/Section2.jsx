@@ -9,7 +9,7 @@ const Section2 = () => {
         
         const handleClick = (name)=>{
        
-            console.log(name)
+           
             setgetData(`${name}`)
         }
 

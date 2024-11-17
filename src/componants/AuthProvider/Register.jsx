@@ -31,14 +31,13 @@ const Register = () => {
     const handleUserInfo = (e) =>{
         setregisterError(null)
         e.preventDefault()
-        console.log(user)
+        
         const form = e.target
         const username = form.username.value
         const email = form.email.value
         const password = form.password.value 
         const confirmpassword = form.Confirmpassword.value 
 
-        console.log(password.length)
         if(!/^[a-zA-Z0-9_]+$/.test(username)) setregisterError('username can contain A-Z , 0-9 or _')
 
         else if(password.length < 6 ) setregisterError('passwords must be greater than 5 character')
@@ -50,7 +49,7 @@ const Register = () => {
         else{
             handleRegister(email,password)
             .then(result => {
-                console.log(result)
+               
                 const login_type = 'email'
                 setregisterError(null)
 
@@ -75,7 +74,7 @@ const Register = () => {
       
 
         const userdata = {username,email,password}
-        console.log(userdata)
+     
     }
 
 

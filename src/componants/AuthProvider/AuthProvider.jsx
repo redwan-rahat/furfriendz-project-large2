@@ -28,7 +28,7 @@ const AuthProvider = ({children}) => {
             const [favItem,setfavItems] = useState(null)
 
 
-            console.log('auth loader',loader)
+          
 
 
             const handleRegister = (email,password) =>
@@ -51,13 +51,13 @@ const AuthProvider = ({children}) => {
                 
 
                 .then(data => {
-                    console.log(data)
+                   
                     setuser(data.user)
                     
                     const username = data.user.displayName
                     const email = data.user.email
                     const login_type = 'google'
-                    console.log('inside google',username,email)
+                    
                     setVisible(true)
                     setMessage('Logged in with Google')
                     setType('success')
@@ -72,7 +72,7 @@ const AuthProvider = ({children}) => {
                     setVisible(true)
                     setMessage('Google login failed')
                     setType('error')
-                    console.log(error)
+                    
                 }
                     )
             }
@@ -89,7 +89,7 @@ const AuthProvider = ({children}) => {
                         setMessage('Signed Out Successfully')
                         setType('error')
                         setnavigate(false)
-                        console.log(resutl)
+                      
                     })
             }
 
@@ -106,7 +106,7 @@ const AuthProvider = ({children}) => {
             // reading all pet data from database
 
             const handleFetch = async(query) =>{
-                console.log(query)
+              
                 
                 const  selectFetch = 'pet_id,photo_url,breeds(breed_name),category'
                 const selectFetch2 = 'product_id, photo_url, product_name,category'
@@ -127,7 +127,7 @@ const AuthProvider = ({children}) => {
                  
                 else
                 {
-                console.log(data)
+                
                 
                 setfetchedData(data)
                 
@@ -142,14 +142,14 @@ const AuthProvider = ({children}) => {
             const handleDetailsData = async(type,id)=>{
                 setloading(true)
                 let query = ''
-                console.log(type,id)
+               
                 
 
                 if(type == 'cat') query= 'cats'
                 if(type == 'dog') query= 'dogs'
                 if(type == 'bird') query= 'birds'
                 if(type == 'product') query= 'pet_products'
-                console.log(query)
+               
 
                 const  selectValue = '*,breeds(breed_name,breed_location)'
                 const selectValue2 = '*'
@@ -167,8 +167,7 @@ const AuthProvider = ({children}) => {
                 data ? setloading(false) : ''
                 
 
-                console.log(data)
-                console.log(error)
+              
 
             }
 
@@ -190,7 +189,7 @@ const AuthProvider = ({children}) => {
                 ])
 
                 if(error) console.log(error)
-                else console.log('inserted data',data)
+            
 
             }
 
@@ -198,7 +197,7 @@ const AuthProvider = ({children}) => {
             //  inserting userdata logged in google
 
             const  insertGoogleDB = async(username,email,login_type)=>{
-                    console.log(username,email)
+                  
                     const {data,error} = await supabase
                     .from('users')
                     .select('email,user_id')
@@ -236,8 +235,8 @@ const AuthProvider = ({children}) => {
 
                 if(data)
                     {
-                        console.log(data)
-                        console.log(data[0]?.user_id)
+                       
+                      
                         
                         return data[0]?.user_id
 
@@ -253,7 +252,7 @@ const AuthProvider = ({children}) => {
 
                 if(data)
                     {
-                        console.log(data[0].user_id)
+                    
                         
                         return data[0].username
 
@@ -264,25 +263,23 @@ const AuthProvider = ({children}) => {
             // inserting data into cart
             const handleCartIN = async(item_id,category)=>{
 
-                console.log(item_id,category,user.email)
+               
 
               const userData =  await getUID(user.email)
               const pet_data = await handleDetailsData(category,item_id)
 
-                console.log(userData)
-                console.log(detailsFetch)
 
                 if(userData && detailsFetch)
                     {
 
-                    console.log(userData)
+              
                      const user_id = userData
                     const name = detailsFetch[0].category == 'product' ? detailsFetch[0].product_name : detailsFetch[0].breeds.breed_name
                     const availability = detailsFetch[0].availability
                     const price = detailsFetch[0].price
                     const photo_url = detailsFetch[0].photo_url
                     
-                    console.log(name,availability,photo_url,price)
+            
 
                     const {data,error} = await supabase 
                     .from('cart')
@@ -306,7 +303,7 @@ const AuthProvider = ({children}) => {
                     }
                         
 
-                    if(error) console.log(error)
+                    
                     
 
                 }
@@ -318,7 +315,7 @@ const AuthProvider = ({children}) => {
 
                 const userData =  await getUID(user.email)
 
-                console.log(userData)
+               
                 const {data,error} = await supabase
                 .from('cart')
                 .select('*')
@@ -326,7 +323,7 @@ const AuthProvider = ({children}) => {
 
                 setmyCart(data)
                 return data
-                console.log(data)
+              
             }
 
 
@@ -335,7 +332,7 @@ const AuthProvider = ({children}) => {
 
                 {
 
-                console.log(cart_id)
+         
                 const {data,error} = await supabase 
                 .from('cart')
                 .delete()
@@ -357,7 +354,7 @@ const AuthProvider = ({children}) => {
 
              
                 const user_id = await getUID(user?.email)
-                console.log(user_id)
+            
                 
                 const {data,count,error} = await supabase
                 .from('cart')
@@ -366,7 +363,7 @@ const AuthProvider = ({children}) => {
 
                 if(data) 
                 {
-                    console.log(data,count)
+                   
                     settotalCart(count)
                 }
                 if(error) console.log(error)
@@ -376,8 +373,7 @@ const AuthProvider = ({children}) => {
 
             // updating the username in supabase
             const handlenameUpdate = async(newUsername)=>{
-                console.log(newUsername)
-                console.log(user.email)
+           
 
 
                 const {data,error} = await supabase 
@@ -418,7 +414,7 @@ const AuthProvider = ({children}) => {
         //       .select('*')
         //       .in('product_id', itemIds);
           
-        //     if(data) console.log(data)
+       
         //     if (error) console.log(error);
         //   }
           
@@ -427,7 +423,7 @@ const AuthProvider = ({children}) => {
             const user_id = await getUID(user?.email);
             
             const cartData  = await handleGetCart()
-            console.log(cartData)
+           
             const itemIds = cartData ? cartData.map(item => item.item_id) : [];
             
             const { data, error } = await supabase
@@ -436,7 +432,7 @@ const AuthProvider = ({children}) => {
               .in('product_id', itemIds);
             
             if (data) {
-              console.log(data);
+          
               setfavItems(data)
             }
             
@@ -462,7 +458,6 @@ const AuthProvider = ({children}) => {
             },[])
 
      
-            console.log('auth loader',loader)
     const  UserInfo = {
             user,handleRegister,handleSignIn,loader,setloader,setpageload,pageload,handleFetch,
             fetchedData,detailsFetch,handleDetailsData,handleSignOut,handleGoogleSignIn,loading,

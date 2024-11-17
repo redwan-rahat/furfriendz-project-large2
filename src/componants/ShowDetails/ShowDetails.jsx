@@ -1,5 +1,5 @@
 import { useContext, useEffect, useLayoutEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContex } from "../AuthProvider/AuthProvider";
 import LoadingOverlay from "../OtherPages/LoadingOverlay";
 
@@ -7,14 +7,14 @@ import LoadingOverlay from "../OtherPages/LoadingOverlay";
 const ShowDetails = () => {
 
 
-    const { handleDetailsData,detailsFetch ,loading,setmyCart,myCart,handleCartIN} = useContext(AuthContex)
+    const { user,handleDetailsData,detailsFetch ,loading,setmyCart,myCart,handleCartIN} = useContext(AuthContex)
   
     const [hoverPrice,sethoverPrice] = useState(false)
 
     const {type,id} = useParams()
-   
+    const nav = useNavigate()
 
-    detailsFetch ? console.log(detailsFetch[0]?.pet_id) : ''
+   
 
     
     useEffect(()=>{
@@ -29,8 +29,11 @@ const ShowDetails = () => {
     const handleAddtoCart =()=>{
         const pet_data = {type: type, id:id}
         
+        user ? 
 
-        handleCartIN(id,type)
+        handleCartIN(id,type):
+        nav('/login')
+
 
     }
 
@@ -40,7 +43,7 @@ const ShowDetails = () => {
     useLayoutEffect(()=>{
         window.scrollTo(0,0)
     },[])
-    console.log(detailsFetch)
+ 
     return (
 
         

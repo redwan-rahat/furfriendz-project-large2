@@ -11,7 +11,7 @@ const PrivateRoutes = ({children}) => {
         const {user,loader} = useContext(AuthContex)
     
         const nav = useNavigate()
-        console.log(loader,user)
+     
      if (loader) return <LoadingOverlay></LoadingOverlay>
     
     if (user) return children

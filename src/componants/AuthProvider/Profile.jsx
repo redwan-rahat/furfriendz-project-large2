@@ -15,7 +15,7 @@ const Profile = () => {
 
    
             const data = await getUsername(user.email)
-            console.log(data)
+       
             setfetchedname(data)
             setunchageuser(data)
     }
@@ -40,11 +40,11 @@ const Profile = () => {
              setfetchedname('username cannot be same') : 
              
             
-           console.log( userRef.current.value)
+          ''
     }
-    console.log(user,user.displayName)
+   
     useEffect(()=>{
-        console.log(user.providerId)
+       
 
 
         if(user.displayName != null)
@@ -62,10 +62,7 @@ const Profile = () => {
 
     },[user])
 
-    console.log(isgoogle)
-
-    console.log(user.user?.providerData[0].photoURL)
-    console.log(showUpdate)
+ 
     return (
         <div className="pb-20 font-page">
                 <div className="bg-second text-white w-4/5 tab:w-4/5 lap:w-3/5 des:w-2/5 m-auto mt-8 tab:mt-20">

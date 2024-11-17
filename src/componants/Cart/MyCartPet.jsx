@@ -7,12 +7,12 @@ const MyCartPet = ({myCart}) => {
 
     const {handleCartDelete} = useContext(AuthContex)
 
-    console.log('inside pet cart',myCart)
+
     const [modalOpen,setmodalOpen] = useState(false)
     const [selectedDelete,setSelected] = useState(null)
     const [noValue,setnoValue] = useState(false)
     const handleDelete =()=>{
-        console.log('deleted',selectedDelete)
+      
         setmodalOpen(false)
 
        handleCartDelete(selectedDelete)
@@ -25,12 +25,12 @@ const MyCartPet = ({myCart}) => {
         if(myCart.length == 0) 
             setnoValue(true) 
 
-        console.log(lol)
+      
         myCart.map(data => data.category == 'product' && lol[0] == false ? setnoValue(true) : setnoValue(false))
 
     },[myCart])
 
-        console.log(noValue)
+        
     
     return (
         <div className="">

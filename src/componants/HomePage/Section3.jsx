@@ -10,10 +10,10 @@ const Section3 = () => {
       handleFavourite()
     },[user])
 
-    console.log(favItem)
+   
     const excluded = [5001, 5007, 5011, 5005]
    const filtered = favItem && favItem.filter(data => !excluded.includes(data.product_id) )
-   console.log(filtered)
+
 
     return (
         <div className=" relative">

@@ -1,0 +1,164 @@
+For cats: 
+
+CREATE TABLE breeds (
+    breed_id INT PRIMARY KEY CHECK (breed_id >= 6001),
+    breed_name VARCHAR(50) UNIQUE NOT NULL,
+    breed_location VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE cats (
+    pet_id INT PRIMARY KEY CHECK (pet_id >= 1001),
+    species VARCHAR(20) NOT NULL,
+    breed_id INT REFERENCES breeds(breed_id),
+    price DECIMAL(10, 2) NOT NULL,
+    personality_traits VARCHAR(100) NOT NULL,
+    gender VARCHAR(10) CHECK (gender IN ('Male', 'Female')),
+    photo_url VARCHAR(255),
+    small_description TEXT,
+    availability VARCHAR(20) CHECK (availability IN ('Available', 'Not Available'))
+);
+
+
+INSERT INTO breeds (breed_id, breed_name, breed_location)
+VALUES
+    (6001, 'Bengal Kitten', 'India, Bangladesh'),
+    (6002, 'British Shorthair', 'United Kingdom'),
+    (6003, 'Maine Coon', 'United States'),
+    (6004, 'Norwegian Forest Cat', 'Norway'),
+    (6005, 'Persian', 'Iran'),
+    (6006, 'Ragdoll', 'United States'),
+    (6007, 'Shorthair Tabby', 'Various'),
+    (6008, 'Siamese', 'Thailand'),
+    (6009, 'Tabby Kitten', 'Various'),
+    (6010, 'Turkish Angora', 'Turkey');
+
+
+
+INSERT INTO cats (pet_id, species, breed_id, price, personality_traits, gender, photo_url, small_description, availability)
+VALUES
+    (1001, 'Cat', 6001, 300, 'Playful, Energetic', 'Male', 'https://i.ibb.co.com/XCTCMFC/Bengal-kitten.webp', 'Bengal kittens are known for their exotic, leopard-like appearance and boundless energy. Perfect for an active family.', 'Available'),
+    (1002, 'Cat', 6002, 400, 'Calm, Loyal', 'Female', 'https://i.ibb.co.com/9qtJKVP/british-short-hair.webp', 'British Shorthairs have a distinctive plush coat and a calm, affectionate personality, making them great companions.', 'Available'),
+    (1003, 'Cat', 6003, 500, 'Gentle, Friendly', 'Male', 'https://i.ibb.co.com/MRbxvqr/Maine-Coon.webp', 'Known as gentle giants, Maine Coons are one of the largest cat breeds and are friendly, sociable, and perfect for kids.', 'Available'),
+    (1004, 'Cat', 6004, 450, 'Adventurous, Loyal', 'Female', 'https://i.ibb.co.com/hdcXTwv/Norwegian-Forest-Cat.webp', 'Norwegian Forest Cats are adventurous and hardy, with a thick coat adapted for cold climates, ideal for outdoor lovers.', 'Available'),
+    (1005, 'Cat', 6005, 350, 'Affectionate, Calm', 'Male', 'https://i.ibb.co.com/ccPkSBf/Persian.webp', 'Persian cats are known for their luxurious fur and sweet demeanor, bringing elegance and calm to any household.', 'Available'),
+    (1006, 'Cat', 6006, 450, 'Docile, Friendly', 'Female', 'https://i.ibb.co.com/FYJ6FxZ/Ragdoll.webp', 'Ragdolls are relaxed and friendly, known for their docile nature and tendency to go limp when held, perfect for cuddles.', 'Available'),
+    (1007, 'Cat', 6007, 200, 'Playful, Curious', 'Male', 'https://i.ibb.co.com/FbFt0f6/Short-Haired-tabby.webp', 'Shorthair Tabbies are lively and curious cats with a distinctive coat pattern, making them a popular pet choice.', 'Available'),
+    (1008, 'Cat', 6008, 300, 'Vocal, Social', 'Female', 'https://i.ibb.co.com/PD57wHg/Siamese.webp', 'Siamese cats are famous for their vocal and social personalities, always eager for human interaction and attention.', 'Available'),
+    (1009, 'Cat', 6009, 250, 'Energetic, Loving', 'Male', 'https://i.ibb.co.com/R2xGSqr/tabby-kitten.webp', 'Tabby kittens are full of energy and affection, perfect for families looking for an active and loving pet.', 'Available'),
+    (1010, 'Cat', 6010, 400, 'Playful, Affectionate', 'Female', 'https://i.ibb.co.com/FBRny6H/Turkish-Angora.webp', 'Turkish Angoras are graceful and intelligent, with a playful spirit and strong bond with their families.', 'Available');
+
+
+
+Dogs:
+
+CREATE TABLE dogs (
+    pet_id INT PRIMARY KEY CHECK (pet_id >= 2001),
+    species VARCHAR(20) NOT NULL,
+    breed_id INT REFERENCES breeds(breed_id),
+    price DECIMAL(10, 2) NOT NULL,
+    personality_traits VARCHAR(100) NOT NULL,
+    gender VARCHAR(10) CHECK (gender IN ('Male', 'Female')),
+    photo_url VARCHAR(255),
+    small_description TEXT,
+    availability VARCHAR(20) CHECK (availability IN ('Available', 'Not Available'))
+);
+
+
+INSERT INTO breeds (breed_id, breed_name, breed_location)
+VALUES
+    (7001, 'Beagle', 'United Kingdom'),
+    (7002, 'French Bulldog', 'France'),
+    (7003, 'German Shepherd', 'Germany'),
+    (7004, 'Golden Retriever', 'United States'),
+    (7005, 'Labrador Retriever', 'Canada'),
+    (7006, 'Maltese', 'Malta'),
+    (7007, 'Poodle', 'France'),
+    (7008, 'Shiba Inu', 'Japan'),
+    (7009, 'White German Shepherd', 'Germany');
+
+
+
+INSERT INTO dogs (pet_id, species, breed_id, price, personality_traits, gender, photo_url, small_description, availability)
+VALUES
+    (2001, 'Dog', 7001, 400, 'Friendly, Curious', 'Male', 'https://i.ibb.co/9Xg2P3B/beagle.webp', 'Beagles are small to medium-sized dogs with a friendly and curious demeanor, great for families.', 'Available'),
+    (2002, 'Dog', 7002, 600, 'Affectionate, Playful', 'Female', 'https://i.ibb.co/Fx0FRNt/french-bulldog.webp', 'French Bulldogs are known for their playful and affectionate nature, making them wonderful companions.', 'Available'),
+    (2003, 'Dog', 7003, 800, 'Intelligent, Loyal', 'Male', 'https://i.ibb.co/0nmz8TV/german-shepherd.webp', 'German Shepherds are highly intelligent and versatile, known for their loyalty and protective instincts.', 'Available'),
+    (2004, 'Dog', 7004, 700, 'Friendly, Intelligent', 'Female', 'https://i.ibb.co/QXxYb7V/golden-retriever.webp', 'Golden Retrievers are friendly, intelligent, and devoted dogs, making them one of the best family pets.', 'Available'),
+    (2005, 'Dog', 7005, 600, 'Energetic, Friendly', 'Male', 'https://i.ibb.co/K2H9Z0c/labrador-retrieve.webp', 'Labradors are known for their friendly and outgoing nature, perfect for active families.', 'Available'),
+    (2006, 'Dog', 7006, 500, 'Affectionate, Playful', 'Female', 'https://i.ibb.co/cXDgG7s/maltese.webp', 'Maltese dogs are small, affectionate, and playful companions, ideal for indoor living.', 'Available'),
+    (2007, 'Dog', 7007, 650, 'Intelligent, Active', 'Male', 'https://i.ibb.co/NxHn8Mg/poodle.webp', 'Poodles are highly intelligent and active dogs, known for their hypoallergenic coats and versatility.', 'Available'),
+    (2008, 'Dog', 7008, 700, 'Independent, Alert', 'Female', 'https://i.ibb.co/7yZgLCV/shiba-inu.webp', 'Shiba Inus are spirited and confident dogs with a strong personality, known for their fox-like appearance.', 'Available'),
+    (2009, 'Dog', 7009, 800, 'Loyal, Protective', 'Male', 'https://i.ibb.co/Jzm7nB4/white-german-shepherd.webp', 'White German Shepherds are known for their striking appearance and loyal nature, making them excellent guard dogs.', 'Available');
+
+
+Birds: 
+
+CREATE TABLE birds (
+    pet_id INT PRIMARY KEY CHECK (pet_id >= 3001),
+    species VARCHAR(20) NOT NULL,
+    breed_id INT REFERENCES breeds(breed_id),
+    price DECIMAL(10, 2) NOT NULL,
+    personality_traits VARCHAR(100) NOT NULL,
+    gender VARCHAR(10) CHECK (gender IN ('Male', 'Female')),
+    photo_url VARCHAR(255),
+    small_description TEXT,
+    availability VARCHAR(20) CHECK (availability IN ('Available', 'Not Available'))
+);
+
+
+INSERT INTO breeds (breed_id, breed_name, breed_location)
+VALUES
+    (8001, 'Amazon Parrot', 'South America'),
+    (8002, 'Budgie', 'Australia'),
+    (8003, 'Caique', 'South America'),
+    (8004, 'Conure', 'Central America'),
+    (8005, 'Eclectus Parrot', 'Australia'),
+    (8006, 'Lovebird', 'Africa'),
+    (8007, 'Quaker Parrot', 'South America'),
+    (8008, 'Saffron Finch', 'South America'),
+    (8009, 'Scarlet Macaw', 'South America');
+
+
+
+INSERT INTO birds (pet_id, species, breed_id, price, personality_traits, gender, photo_url, small_description, availability)
+VALUES
+    (3001, 'Bird', 8001, 450, 'Intelligent, Social', 'Female', 'https://i.ibb.co.com/Q6Mq1Qb/Amazon-Parrot.webp', 'Amazon Parrots are highly intelligent and social birds known for their vibrant green feathers.', 'Available'),
+    (3002, 'Bird', 8002, 100, 'Friendly, Playful', 'Male', 'https://i.ibb.co.com/dMKPwSC/Budgie.webp', 'Budgies are small, friendly birds, popular for their vibrant colors and playful nature.', 'Available'),
+    (3003, 'Bird', 8003, 300, 'Energetic, Mischievous', 'Female', 'https://i.ibb.co.com/BNmHMQ7/Caique.webp', 'Caiques are energetic and mischievous parrots, known for their strong personalities and playfulness.', 'Available'),
+    (3004, 'Bird', 8004, 350, 'Outgoing, Affectionate', 'Male', 'https://i.ibb.co.com/ncRNRgF/Conure.webp', 'Conures are affectionate and outgoing birds, often forming close bonds with their owners.', 'Available'),
+    (3005, 'Bird', 8005, 500, 'Intelligent, Quiet', 'Female', 'https://i.ibb.co.com/9vkv30P/Eclectus-Parrot.webp', 'Eclectus Parrots are known for their quiet demeanor and beautiful coloration, making them unique pets.', 'Available'),
+    (3006, 'Bird', 8006, 200, 'Affectionate, Curious', 'Male', 'https://i.ibb.co.com/k0WM9jS/Lovebird.webp', 'Lovebirds are small, affectionate parrots that love to socialize and have curious personalities.', 'Available'),
+    (3007, 'Bird', 8007, 250, 'Social, Talkative', 'Female', 'https://i.ibb.co.com/f9jsYY7/Quaker-Parrot.webp', 'Quaker Parrots are social, talkative birds that can learn to mimic words and phrases, making them entertaining pets.', 'Available'),
+    (3008, 'Bird', 8008, 120, 'Cheerful, Lively', 'Male', 'https://i.ibb.co.com/bXG28mF/Saffron-Finch.webp', 'Saffron Finches are lively and cheerful birds, known for their beautiful yellow plumage.', 'Available'),
+    (3009, 'Bird', 8009, 600, 'Intelligent, Vibrant', 'Female', 'https://i.ibb.co.com/pr39Zqj/Scarlet-Macaw.webp', 'Scarlet Macaws are large, intelligent birds with vibrant red feathers, admired for their beauty and charisma.', 'Available');
+
+
+Items: 
+
+CREATE TABLE pet_products (
+    product_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    availability VARCHAR(20) NOT NULL,
+    small_description TEXT NOT NULL,
+    material VARCHAR(50) NOT NULL,
+    weight INT NOT NULL,
+    image_url VARCHAR(255) NOT NULL
+);
+
+
+INSERT INTO pet_products (product_id, name, category, price, availability, small_description, material, weight, image_url) VALUES
+(5001, 'Cat Laser Toy', 'Cat Toys', 15.00, 'Available', 'This interactive laser toy provides hours of fun for cats, encouraging them to chase and pounce, aiding exercise.', 'Plastic', 150, 'https://i.ibb.co.com/30d3dKF/cat-laser-toy.webp'),
+(5002, 'Catnip', 'Cat Treats', 5.00, 'Available', 'Fresh catnip offers a natural, fun, and safe way to entertain your cat, stimulating their playful and curious nature.', 'Natural Herb', 50, 'https://i.ibb.co.com/0tzVvRN/Catnip.webp'),
+(5003, 'Chew Balls', 'Dog Toys', 10.00, 'Available', 'Durable chew balls provide a safe and enjoyable chewing experience for dogs, promoting dental health and playfulness.', 'Rubber', 200, 'https://i.ibb.co.com/njSTSVm/chew-balls.webp'),
+(5004, 'Foraging Toys', 'Bird Toys', 20.00, 'Available', 'Foraging toys keep birds mentally stimulated, encouraging them to use problem-solving skills while feeding.', 'Natural Fibers', 120, 'https://i.ibb.co.com/mXTjKBM/Foraging-Toys.webp'),
+(5005, 'Frisbees', 'Dog Toys', 12.00, 'Available', 'High-flying frisbees are great for active dogs, providing endless hours of fetching fun and exercise.', 'Plastic', 180, 'https://i.ibb.co.com/LP3kfWm/Frisbees.webp'),
+(5006, 'Mirror Toys', 'Bird Toys', 8.00, 'Available', 'Mirror toys provide entertainment and comfort for birds, especially for those who enjoy looking at reflections.', 'Glass, Plastic', 100, 'https://i.ibb.co.com/r7F6nzP/Mirror-Toys.webp'),
+(5007, 'Pet Cage', 'Housing', 60.00, 'Available', 'Spacious and comfortable pet cage with secure locks, suitable for small to medium-sized pets needing a safe space.', 'Metal, Plastic', 5000, 'https://i.ibb.co.com/bB2xWSb/petcage.webp'),
+(5008, 'Rope Perches with Wooden Beads', 'Bird Toys', 18.00, 'Available', 'Durable rope perches with wooden beads offer birds a comfortable place to perch and exercise, enhancing cage habitat.', 'Rope, Wood', 220, 'https://i.ibb.co.com/4ZDd7JX/Rope-Perches-with-Wooden-Beads.webp'),
+(5009, 'Scratching Post', 'Cat Furniture', 25.00, 'Available', 'Sturdy scratching post helps cats satisfy their scratching instinct while protecting your furniture from damage.', 'Sisal, Wood', 3000, 'https://i.ibb.co.com/Yhv0SVr/Scratching-Post.webp'),
+(5010, 'Treat Dispenser', 'Dog Toys', 15.00, 'Available', 'This treat dispenser challenges pets to retrieve treats, keeping them mentally and physically engaged during playtime.', 'Plastic', 250, 'https://i.ibb.co.com/qxVJRPz/treat-dispenser.webp');
+
+
+

@@ -40,9 +40,7 @@ const Navbar = () => {
         handleTotalCarts()
     },[settotalCart,user])
 
-    console.log(user)
-    console.log(totalCart)
-
+ 
 
 
 

@@ -14,13 +14,10 @@ const Section2Carousal = ({getdata}) => {
     const [animate,setanimate] = useState(false)
 
     const handleCurrentPage = (e)=>{
-        console.log(e)
+      
         setcurrentPage(e)
     }
 
-    const handleShowDetails = (detailisID)=>{
-        console.log(detailisID)
-    }
 
     
     useEffect(()=>{
@@ -28,7 +25,7 @@ const Section2Carousal = ({getdata}) => {
         const pageRequired = Math.ceil(fetchedData && fetchedData.length / 5)
 
         setpageNeeded(pageRequired)
-        console.log(currentPage*5)
+      
         const items = fetchedData&& fetchedData.slice(
          
         ( currentPage - 1) * 5  ,  currentPage * 5
@@ -42,7 +39,7 @@ const Section2Carousal = ({getdata}) => {
 
 useEffect(()=>{
     
-    console.log(getdata)
+
     handleFetch(getdata.replace(/'/g,''))
     
  },[getdata])
@@ -65,7 +62,7 @@ useEffect(()=>{
                    pagenation && pagenation.map(data => 
                     <>
                     {
-                        console.log(data.category)
+                     
                     }
                     <NavLink to={`/details/${data.category.toLowerCase()}/${data.pet_id ? data.pet_id: data.product_id}`} >
                     <div className={` text-center mt-5 grid-cols-1 space-y-4`}>

@@ -6,20 +6,20 @@ import { AuthContex } from "../AuthProvider/AuthProvider";
 const MyCartProducts = ({myCart}) => {
     
     const {handleCartDelete} = useContext(AuthContex)
-    console.log('inside pet cart',myCart)
+   
     const [modalOpen,setmodalOpen] = useState(false)
     const [selectedDelete,setSelected] = useState(null)
     const [noValue,setnoValue] = useState(false)
 
     const handleDelete =()=>{
-        console.log('deleted',selectedDelete)
+       
         setmodalOpen(false)
         handleCartDelete(selectedDelete)
     }
 
     useEffect(()=>{
 
-        console.log(myCart )
+     
         if(myCart.length == 0) 
             setnoValue(true) 
 
@@ -29,7 +29,7 @@ const MyCartProducts = ({myCart}) => {
     },[myCart])
 
 
-    console.log(noValue)
+  
 
     return (
         <div className="">

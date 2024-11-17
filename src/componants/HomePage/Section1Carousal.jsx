@@ -56,7 +56,7 @@ const Section1Carousal = () => {
         const newpage = page >= 1 && Number(page) + 1 !== 4 ? Number(page) + 1 : 1;
 
         temp[temp.length - 1] = newpage
-        console.log(newpage)
+       
         setcurrpagenum(newpage)
         let raf = temp.join('')
         setcurrpage(raf)

@@ -34,7 +34,7 @@ const Login = () => {
 
     const handleUserInfo =(e)=>{
         e.preventDefault()
-        console.log(user)
+    
         const form = e.target
      
         const email = form.email.value
@@ -42,7 +42,7 @@ const Login = () => {
 
         handleSignIn(email,password)
         .then(result => {
-            console.log(result)
+          
             //nav('/')
             setloginError(null)
             // fetchUser(result.user.email)
@@ -62,7 +62,7 @@ const Login = () => {
         })
 
         const userdata = {email,password}
-        console.log(userdata)
+      
     }
 
 

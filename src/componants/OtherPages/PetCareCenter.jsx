@@ -6,13 +6,13 @@ import DogWalking from "../Animations/DogWalking";
 const PetCareCenter = () => {
 
         const data = useLoaderData()
-        console.log(data)
+    
 
         const [showCam,setshowCam ] = useState('CAM01')
         const [viewImage,setviewImg] = useState(data[0].imageLink ? data[0].imageLink : '')
 
         const [showLoad,setshowLoad] = useState(false)
-        console.log(data[0].imageLink)
+        
 
         const handleLoad = ()=>{
                 setshowLoad(true)

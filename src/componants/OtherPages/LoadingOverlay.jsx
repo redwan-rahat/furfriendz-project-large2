@@ -16,7 +16,7 @@ const LoadingOverlay = () => {
         const interval = setInterval(() => {
             setdotCount((prev) => prev > 2 ? 1 : prev + 1)
         }, 700);
-        console.log(dotCount)
+ 
         return ()=> clearInterval(interval) 
     },[])
 

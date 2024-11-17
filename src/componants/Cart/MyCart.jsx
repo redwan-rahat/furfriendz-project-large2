@@ -13,10 +13,10 @@ const MyCart = () => {
       handleFavourite()
     },[user])
 
-    console.log('inside my cart',myCart)
+   
 
     const handlePaid =()=>{
-        console.log(myCart.length)
+       
 
         
         myCart.length == 0 ? 
@@ -25,13 +25,13 @@ const MyCart = () => {
             setVisible(true)
             setMessage('Bruh!!😒 Add something first')
             setType('error')
-            console.log('no')
+         
         })() :
       (  ()=>{
             setVisible(true)
             setMessage("All Your's 😋. Enjoy 🎉")
             setType('success')
-            console.log('yes')
+           
         })()
         
     }
@@ -91,7 +91,7 @@ const MyCart = () => {
 
 
                     <hr className="border   mt-8" />
-                    <div className="text-lg tab:text-lg lap:text-xl space-x-2 tab:space-x-0 des:space-x-2   mt-4 flex tab:inline des:flex">
+                    <div className="text-lg tab:text-lg lap:text-xl space-x-2 tab:space-x-0 des:space-x-2 des:ml-3  mt-4 flex tab:inline des:flex">
                         <h1 className="">Total Price : </h1>
                     <span className="text-orange-400">{myCart && myCart.reduce((total,item)=> total + item.price ,0)}$</span>
                     </div>
