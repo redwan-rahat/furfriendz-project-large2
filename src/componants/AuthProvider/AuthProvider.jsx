@@ -14,6 +14,7 @@ const AuthProvider = ({children}) => {
             const [loader,setloader] = useState(true)
             const [pageload,setpageload] = useState(false)
             const [fetchedData,setfetchedData] =useState(null)
+          
             const [detailsFetch,setDetailsFetch] = useState(null)
             const [loading,setloading] = useState(false)
             const [special , setspecial] = useState(false)
@@ -170,6 +171,52 @@ const AuthProvider = ({children}) => {
               
 
             }
+
+            // const handleSearch = async (category,searchVal)=>{
+
+            //     const  selectFetch = 'pet_id,photo_url,breeds(breed_name),category'
+            //     const selectFetch2 = 'product_id, photo_url, product_name,category'
+                
+                
+                
+
+            //   const select =   category == 'pet_products' ?  selectFetch2   :  '*' 
+
+            //     if(category == 'pet_products'){
+            //    
+
+            //         const {data,error} = await supabase
+            //         .from(category)
+            //         .select(select)
+            //         .ilike('product_name',`%${searchVal}%`)
+
+          
+
+            //         if(error) console.log(error)
+
+            //     }
+
+            //     else{
+
+            //         const {data,error} = await supabase 
+            //         .from('breeds')
+            //         .select('breed_id')
+            //         .ilike('breed_name',`%${searchVal}%`)
+
+
+            //         if(data) {
+            //            console.log(data)
+            //         }
+
+            //         if(error) console.log(error)
+                        
+            //     }
+                
+             
+
+             
+
+            // }
 
 
 

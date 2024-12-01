@@ -48,7 +48,7 @@ const Navbar = () => {
     const middlelinks = <>
 
         <NavLink to={'/'} className={({isActive})=> isActive ? 'linkactive duration-200 ease-out': 'hover:text-primary duration-300'  } ><li className="mt-1 tab:mt-4">Home</li></NavLink>
-        <NavLink onClick={()=>handleScrollToAllproduct()} to={'/'} className={'hover:text-primary duration-300'}><li className="mt-1 tab:mt-4">Pets & Products</li></NavLink>
+        <NavLink to={'/shop'} className={'hover:text-primary duration-300'}><li className="mt-1 tab:mt-4">Pets & Products</li></NavLink>
        
 {
     user? 
@@ -135,12 +135,13 @@ const Navbar = () => {
                      </div>
                 </div>
                 </div>
-
-                <div className="m-auto">
+                <NavLink to={'/'}>
+                <div className="m-auto" >
                     <div className="tab:w-32 tab:h-32 w-24 h-24">
                         <img src="https://i.ibb.co.com/84VQ3Vs/Logo-5.webp" alt="" />
                     </div>
                 </div>
+                </NavLink>
                 
                 
             </div>

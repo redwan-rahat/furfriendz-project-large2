@@ -12,6 +12,7 @@ import ShowDetails from "../ShowDetails/ShowDetails";
 import MyCart from "../Cart/MyCart";
 import Profile from "../AuthProvider/Profile";
 import PetCareCenter from "../OtherPages/PetCareCenter";
+import PetsAndProducts from "../OtherPages/PetsAndProducts";
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         {
           path:'/contactus',
           element: <ContactUs></ContactUs>
+        },
+        {
+          path: '/shop',
+          element:<PetsAndProducts></PetsAndProducts>
         },
         {
           path:'/login',

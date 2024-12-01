@@ -135,7 +135,7 @@ const Section1Carousal = () => {
     return (
         <div className="relative">
            
-            <div className="relative  justify-center w-11/12 m-auto lap:-mt-20 des:mt-0 flex">
+            <div className="relative  justify-center w-11/12 m-auto  lap:-mt-20 des:mt-0 flex">
                 {/* lefttext */}
 
                 <div className="absolute hidden tab:flex lap:-space-x-2 des:-space-x-7 font-page text-primary tab:w-[200px] lap:w-[300px] des:w-[550px] font-semibold text-left left-2 tab:top-60 lap:top-72 items-start ">

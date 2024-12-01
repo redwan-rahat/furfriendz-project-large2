@@ -22,7 +22,7 @@ const Home = () => {
 
             </div>
 
-            <div className="" ref={sectionRef}>
+            <div className="" >
             <Section2></Section2>
         </div>
 
