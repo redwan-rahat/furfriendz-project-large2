@@ -48,7 +48,7 @@ const Navbar = () => {
     const middlelinks = <>
 
         <NavLink to={'/'} className={({isActive})=> isActive ? 'linkactive duration-200 ease-out': 'hover:text-primary duration-300'  } ><li className="mt-1 tab:mt-4">Home</li></NavLink>
-        <NavLink to={'/shop'} className={'hover:text-primary duration-300'}><li className="mt-1 tab:mt-4">Pets & Products</li></NavLink>
+        <NavLink to={'/shop'} className={({isActive})=> isActive ? 'linkactive duration-200 ease-out': 'hover:text-primary duration-300'  } ><li className="mt-1 tab:mt-4">Pets & Products</li></NavLink>
        
 {
     user? 
