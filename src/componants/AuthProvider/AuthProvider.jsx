@@ -17,7 +17,7 @@ const AuthProvider = ({children}) => {
           
             const [detailsFetch,setDetailsFetch] = useState(null)
             const [loading,setloading] = useState(false)
-            const [special , setspecial] = useState(false)
+            const [special , setspecial] = useState(true)
             const [myCart,setmyCart] = useState([])
             const [totalCart,settotalCart] = useState(0)
             const[emaiUsername,setemailUsername] = useState(null)
@@ -115,7 +115,7 @@ const AuthProvider = ({children}) => {
                 
                 
 
-              const select =   query == 'pet_products' ?  selectFetch2   :  selectFetch 
+            const select =   query == 'pet_products' ?  selectFetch2   :  selectFetch 
             const orderItem = query == 'pet_products' ?  'product_id'  : 'pet_id' 
 
                 const {data , error} = await supabase
@@ -271,6 +271,9 @@ const AuthProvider = ({children}) => {
 
                
             }
+
+
+            // normal fetch
             const getUID = async (email)=>{
 
                 const {data,error} = await supabase
@@ -290,6 +293,9 @@ const AuthProvider = ({children}) => {
                     } 
 
             }
+
+
+            // normal fetch
             const getUsername = async (email)=>{
 
                 const {data,error} = await supabase
@@ -307,12 +313,14 @@ const AuthProvider = ({children}) => {
 
             }
 
+
             // inserting data into cart
             const handleCartIN = async(item_id,category)=>{
 
                
 
               const userData =  await getUID(user.email)
+
               const pet_data = await handleDetailsData(category,item_id)
 
 
@@ -344,6 +352,8 @@ const AuthProvider = ({children}) => {
                     if(!error) 
                     {
                         settotalCart(totalCart + 1)
+
+
                         setVisible(true)
                         setMessage('Successfully Added To Cart')
                         setType('success')
@@ -397,6 +407,8 @@ const AuthProvider = ({children}) => {
             }
             
             // counting cart items of specific user
+            // use of aggregate function
+
             const handleTotalCarts = async()=>{
 
              
@@ -417,6 +429,7 @@ const AuthProvider = ({children}) => {
 
 
             }
+
 
             // updating the username in supabase
             const handlenameUpdate = async(newUsername)=>{
@@ -465,8 +478,14 @@ const AuthProvider = ({children}) => {
         //     if (error) console.log(error);
         //   }
           
+
+
             // use of subquery in supabase
-        const handleFavourite = async () => {
+
+        const handleFavourite = async () => 
+            
+            {
+
             const user_id = await getUID(user?.email);
             
             const cartData  = await handleGetCart()
